@@ -1,0 +1,19 @@
+
+
+
+.numbers
+{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	overflow: auto;
+  white-space: nowrap;
+}
+
+.numbers::-webkit-scrollbar {
+    display:none;
+}
+.numbers div
+{
+	margin-left:10px;
+}

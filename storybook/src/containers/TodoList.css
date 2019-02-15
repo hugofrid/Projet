@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
+
+
+.TodoList
+{
+	width: 250px;
+	height: 400px;
+	background: #F4ECE3;
+	border:1px solid #7F90C4;
+	font-family: 'Hind Madurai';
+	border-radius: 10px 10px;
+	overflow: hidden;
+}
+
+.TodoList .ToDoListTitle
+{
+	text-align: center;
+	font-family: 'Hind Madurai';
+	color: #06395B;
+	font-size: 1.3em;
+	border-bottom: 2px solid #06395B;
+	margin:10px;
+}
+
+
+.newToDo 
+{
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.newToDo textarea:focus
+{
+	outline: none;
+	box-shadow: none;
+	
+}
+
+.newToDo button:focus 
+{
+	outline: none;
+	box-shadow: none;
+}
+
+.newToDo .new
+{
+	font-family: 'Hind Madurai';
+	padding:10px;
+	overflow:wrap; 
+	font-size:1em;
+	color: #06395B;
+	background: transparent;
+	resize: none;
+	border:transparent;
+
+}
+
+.TodoList .newToDo button
+{
+	font-family: 'Hind Madurai';
+	border:1px solid #7F90C4;
+	margin:5px;
+	width: 110px;
+	float: right;
+	height: 30px;
+	border-radius: 10px 10px;
+	align-self: flex-end;
+	
+}
+
+.TodoList .newToDo button:hover
+{
+	background:#7F90C4;
+	color:#FFF4F4;
+	border:1px solid #273A6D;
+}
+
+
+
+
+.TodoList .Todos
+{
+	width: 100%;
+	height: 69%;
+	border-top:1px solid #7F90C4 ;
+	overflow-y:scroll;
+	
+}
+.TodoList .Todos::-webkit-scrollbar {
+    display:none;
+}

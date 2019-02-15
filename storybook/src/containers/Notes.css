@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
+
+.mesNotes
+{
+	width: 300px;
+	height: 500px;
+
+	background: #F4ECE3;
+	border:1px solid #7F90C4;
+	font-family: 'Hind Madurai';
+	border-radius: 10px 10px;
+	overflow: hidden;
+}
+
+
+
+.mesNotes .newNote
+{
+
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	border-bottom:2px solid #7F90C4;;
+
+}
+
+.mesNotes input:focus
+{
+	outline: none;
+	box-shadow: none;
+	
+
+}
+.mesNotes button:focus
+{
+	outline: none;
+	box-shadow: none;
+
+
+
+}
+.mesNotes textarea:focus
+{
+	outline: none;
+	box-shadow: none;
+	
+}
+
+
+
+.newNote .title
+{
+	font-family: 'Hind Madurai';
+	color:#273A6D;
+	font-size:1.1em;
+	margin:10px;
+
+	background: transparent;
+	border:transparent;
+	border-bottom:1px solid #7F90C4;
+
+}
+.newNote .laNote
+{
+	font-family: 'Hind Madurai';
+	padding:10px;
+	overflow:wrap; 
+	font-size:1.1em;
+	color: #06395B;
+	background: transparent;
+	resize: none;
+	border:transparent;
+
+}
+
+.mesNotes .newNote button
+{
+	font-family: 'Hind Madurai';
+	border:1px solid #7F90C4;
+	margin:5px;
+	width: 110px;
+	float: right;
+	height: 30px;
+	border-radius: 10px 10px;
+	align-self: flex-end;
+	
+}
+
+.mesNotes .newNote button:hover
+{
+	background:#7F90C4;
+	color:#FFF4F4;
+	border:1px solid #273A6D;
+}
+
+
+
+
+.mesNotes .notes
+{
+	width: 100%;
+	height: 69%;
+	
+	overflow-y:scroll;
+	
+}
+.mesNotes .notes::-webkit-scrollbar {
+    display:none;
+}
+
+
+.mesNotes .note
+{
+	width: 100%;
+	height: fit-content;
+	display:flex;
+	flex-direction: column;
+	background: #F4ECE3;
+	border-top:1px solid #7F90C4;
+}
+
+.mesNotes .top
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.mesNotes .titleNote
+{
+	font-size: 1.1em;
+	color:#273A6D;
+	text-decoration: underline; 
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+}
+.note button
+{
+	width: 16px;
+	height: 16px;
+	margin-top: 5px;
+	margin-right: 5px;
+	padding: 0px;
+ 	background: transparent;
+ 	border:transparent;
+ }
+
+.note button:hover
+{
+	transform: scale(1.2);
+
+ }
+.note img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.mesNotes .textNote
+{
+
+	color:#06395B;
+	margin-bottom: 0px;
+	margin-left: 15px;
+	margin-right: 10px;
+}
+
+.mesNotes .dateNote
+{
+	margin-right: 10px;
+	font-size: 0.7em;
+	color: #7F90C4;
+	margin: 5px;
+	text-align: right;
+}

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
+
+.VisualNumber
+{
+	width: fit-content;
+	height: fit-content;
+	
+	background:#F4ECE3;
+
+	display: flex ;
+	flex-direction: row ;
+	align-items: center;
+	justify-content: space-around;
+	border:1px solid #7F90C4;
+	border-radius: 10px 10px;
+	font-family: 'Hind Madurai';
+	padding-left:15px;
+	padding-right: 15px; 
+}
+
+ .VisualNumber .quantity
+{
+	justify-content: center;
+	margin:10px;
+	justify-content: center;
+	float: right;
+	margin-top:0px;
+	font-size: 1.4em;
+	color:#273A6D;
+}
+
+.VisualNumber .title
+{
+	margin: 10px;
+	font-size: 0.8em;
+	color: #7F90C4
+}
+.VisualNumber img
+{
+
+	width: 55px;
+	height: 55px;
+}
+
+
+
