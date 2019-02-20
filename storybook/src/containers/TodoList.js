@@ -18,7 +18,7 @@ addTodo()
 		if(this.state.newTodo!="")
 		{
 			let nwTodos = this.state.todos
-			let Add = {ToDo:this.state.newTodo,}
+			let Add = {ToDo:this.state.newTodo,checked:false}
 			nwTodos.unshift(Add);
 			this.setState({todos:nwTodos, newTodo:""})
 		}
@@ -39,6 +39,21 @@ deleteTodo(i)
 
 	}
 
+toggleCB(i,c)
+	{
+		let newTodos = this.state.todos;
+		if(c===true)
+		{
+			newTodos[this.state.todos.indexOf(i)].checked=false;
+		}
+		if(c===false)
+		{
+			newTodos[this.state.todos.indexOf(i)].checked=true;
+		}
+		this.setState({Todos:newTodos})
+		
+	}
+
 
 	render() {
 		return (
@@ -52,7 +67,7 @@ deleteTodo(i)
 				<div className="Todos">
 
 					{this.state.todos.map((todo) =>
-						 <ToDo todo={todo.ToDo} onClick={() => this.deleteTodo(todo)}/>
+						 <ToDo todo={todo.ToDo} checked={todo.checked} onClick={() => this.deleteTodo(todo)} toggleCB={() => this.toggleCB(todo,todo.checked)}/>
 					)}
 
 				</div>

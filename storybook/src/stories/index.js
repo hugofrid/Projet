@@ -12,6 +12,7 @@ import Piechart from '../components/Piechart'
 import RadialPie from '../components/RadialPie'
 import ToDo from '../components/ToDo'
 import TodoList from '../containers/TodoList'
+import Weather from '../components/Weather'
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -136,17 +137,18 @@ storiesOf('chart',module)
   .add('RadialChart', () => <RadialPie data={dataRP} />)
 
 const Todos = [
-  {ToDo:'manger chez mamie',},
-  {ToDo:'acheter des pattes',},
-  {ToDo:'vendre le chien',}, 
-  {ToDo:'acheter la drogue',},
+  {ToDo:'manger chez mamie',checked:false},
+  {ToDo:'acheter des pattes',checked:true},
+  {ToDo:'vendre le chien',checked:true}, 
+  {ToDo:'acheter la drogue',checked:false},
 ]
 
   storiesOf('ToDo List', module)
     .add('ToDo elem', () => <ToDo todo="acheter du painnfinogn reoihgrio firehgi rhgi rhgihrig hrihgrihgi rhgih righrihgi" />)
     .add('ToDo List', () => <TodoList TodoListName="truc pour maman" todos={Todos} />)
 
-
+storiesOf('weather',module)
+  .add('weather',() => <Weather city="Paris"/>)
 
 
 
