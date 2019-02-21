@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
+
+
+.ListOfTDL
+{
+	width: 100%;
+	overflow-x: scroll;
+
+
+}
+
+.ListOfTDL::-webkit-scrollbar {
+    display:none;
+}
+
+.ListOfTDL .list
+{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.ListOfTDL .list button
+{
+	margin-top: 5px;
+}
+
+.ListOfTDL .topPart button:hover
+{
+	
+	transform: scale(1.2);
+}
+
+
+.ListOfTDL .new
+{
+	margin-left: 5px;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	font-family: 'Hind Madurai';
+}
+.ListOfTDL button:focus
+{
+  outline: none;
+  box-shadow: none;
+}
+
+
+.ListOfTDL input:focus
+{
+  outline: none;
+  box-shadow: none;
+}
+
+.ListOfTDL button
+{
+  width: 20px;
+  height: 20px;
+margin-right:5px;
+  margin-left: 3px;
+  padding: 0px;
+  background: transparent;
+  border:transparent;
+}
+
+.ListOfTDL .addButton:hover
+{
+  transform: scale(1.2);
+
+}
+
+.ListOfTDL img
+{
+  height: 100%;
+}
+
+.newTitle
+{
+	font-size: 1.1em;
+	border:none;
+	border-bottom: 1px solid black;
+	background: transparent;
+}

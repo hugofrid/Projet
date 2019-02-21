@@ -13,6 +13,8 @@ import RadialPie from '../components/RadialPie'
 import ToDo from '../components/ToDo'
 import TodoList from '../containers/TodoList'
 import Weather from '../components/Weather'
+import ListOfTDL from '../containers/ListOfTDL'
+import Timer from '../components/Timer'
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -146,11 +148,13 @@ const Todos = [
   storiesOf('ToDo List', module)
     .add('ToDo elem', () => <ToDo todo="acheter du painnfinogn reoihgrio firehgi rhgi rhgihrig hrihgrihgi rhgih righrihgi" />)
     .add('ToDo List', () => <TodoList TodoListName="truc pour maman" todos={Todos} />)
+    .add('list of TodoList', () => <ListOfTDL />)
 
 storiesOf('weather',module)
   .add('weather',() => <Weather city="Paris"/>)
 
-
+storiesOf('clock',module)
+  .add('time',() => <Timer/>)
 
 
 

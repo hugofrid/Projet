@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
+ @import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
 
 .VisualNumber
 {
@@ -33,7 +33,7 @@
 {
 	margin: 10px;
 	font-size: 0.8em;
-	color: #7F90C4
+	color: #7F90C4;
 }
 .VisualNumber img
 {

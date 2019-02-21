@@ -58,8 +58,9 @@ toggleCB(i,c)
 	render() {
 		return (
 			<div className="TodoList">
-				<p className="ToDoListTitle">{this.props.TodoListName}</p>
-
+				<div className="topPart">
+					<p className="ToDoListTitle">{this.props.TodoListName}</p> <button onClick={this.props.deleteClick}><img src={require("../icons/delete-button.png")} alt="delete"/></button>
+				</div>
 				<div className="newToDo">
 					<textarea className="new" type="textarea" placeholder="Todo..." value={this.state.newTodo} onChange={this.editNewTodo.bind(this)}/>
 					<button onClick={() => this.addTodo()}>Add !</button> 
