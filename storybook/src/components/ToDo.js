@@ -19,7 +19,7 @@ export default class ToDo extends React.Component {
 						<input type="checkbox" checked={this.props.checked} onChange={this.props.toggleCB} />
   						<span className="checkmark"></span>
 				</label>
-				<button onClick={this.props.onClick}><img src={require("../icons/delete-button.png")} alt="delete"/></button>
+				<button onClick={() => this.props.deleteTodo(this.props.todo)}><img src={require("../icons/delete-button.png")} alt="delete"/></button>
 				
 			</div>
 		);

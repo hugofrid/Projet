@@ -6,22 +6,9 @@ export default class TodoList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			TodoListName:this.props.TodoListName,
-			todos:this.props.todos,
 			newTodo:"",
 		}
 
-	}
-
-addTodo()
-	{
-		if(this.state.newTodo!="")
-		{
-			let nwTodos = this.state.todos
-			let Add = {ToDo:this.state.newTodo,checked:false}
-			nwTodos.unshift(Add);
-			this.setState({todos:nwTodos, newTodo:""})
-		}
 	}
 
 editNewTodo(event)
@@ -29,29 +16,19 @@ editNewTodo(event)
 		this.setState({newTodo: event.target.value})
 	}
 
-deleteTodo(i)
-	{
-
-		let newTodos = this.state.todos;
-		newTodos.splice(this.state.todos.indexOf(i),1)
-		this.setState({Todos:newTodos})
-
-
+	deleteTodo = (todo) => {
+		console.log(todo);
+		this.props.deleteTodo(todo, this.props.TodoListName);
 	}
 
-toggleCB(i,c)
+	addTodo = () =>
 	{
-		let newTodos = this.state.todos;
-		if(c===true)
+		if(this.state.newTodo!="")
 		{
-			newTodos[this.state.todos.indexOf(i)].checked=false;
+			this.props.addTodo(this.state.newTodo , this.props.TodoListName);
+			this.setState({newTodo:""});
+
 		}
-		if(c===false)
-		{
-			newTodos[this.state.todos.indexOf(i)].checked=true;
-		}
-		this.setState({Todos:newTodos})
-		
 	}
 
 
@@ -62,13 +39,13 @@ toggleCB(i,c)
 					<p className="ToDoListTitle">{this.props.TodoListName}</p> <button onClick={this.props.deleteClick}><img src={require("../icons/delete-button.png")} alt="delete"/></button>
 				</div>
 				<div className="newToDo">
-					<textarea className="new" type="textarea" placeholder="Todo..." value={this.state.newTodo} onChange={this.editNewTodo.bind(this)}/>
-					<button onClick={() => this.addTodo()}>Add !</button> 
+					<textarea className="new" type="textarea" placeholder="Todo..." value={this.state.newTodo} onChange={this.editNewTodo.bind(this)} /*onKeyUp={this.props.addTodo(this.state.newTodo)}*//>
+					<button onClick={this.addTodo}>Add !</button> 
 				</div>		
 				<div className="Todos">
 
-					{this.state.todos.map((todo) =>
-						 <ToDo todo={todo.ToDo} checked={todo.checked} onClick={() => this.deleteTodo(todo)} toggleCB={() => this.toggleCB(todo,todo.checked)}/>
+					{this.props.todos.map((todo, id) =>
+						 <ToDo key={id} todo={todo.ToDo} checked={todo.checked} deleteTodo={this.deleteTodo} toggleCB={this.props.toggleCB}/>
 					)}
 
 				</div>
