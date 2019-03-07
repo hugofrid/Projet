@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import {Container, Col, Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Routes from './Routes'
 import './App.css';
 
 
+
 class App extends Component {
   render() {
     return (
-      <div className="App container row">
-      
-      <aside className="col-2">
+
+
+      <Row className="App">
+      <Col xs="2">
+      <aside >
         <nav >
           <ol className="justify-content-arownd">
             <ul><Link to="/">Home</Link></ul>
@@ -18,15 +22,19 @@ class App extends Component {
           </ol>
         </nav>
       </aside>
+      </Col>
     
-      <main className="col">
-        <Routes />
-      </main>
-   
-        <footer className="row">
-        </footer>
-      
-      </div>
+      <Col xs="10">
+          <main >
+            <Routes />
+          </main>
+
+      </Col>
+
+      </Row>
+
+
+    
     );
   }
 }

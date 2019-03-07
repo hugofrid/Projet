@@ -14,9 +14,6 @@ export default class ListOfTDL extends React.Component {
 		}
 		}
 	
-
-
-
 	editNewTitle(event)
 	{
 		this.setState({newTitle: event.target.value});
@@ -24,47 +21,31 @@ export default class ListOfTDL extends React.Component {
 
 	AddList()
 	{
-		if(this.state.newTitle!="")
+		if(this.state.newTitle!=="")
 		{
-			
 			let nwTitle = this.state.newTitle;
-			let Add = {title:nwTitle,list:[]}
-
-			
+			let Add = {title:nwTitle,list:[]};
 			let nwList = [...this.state.lists,Add];
-
-			this.setState({ newTitle:"", lists:nwList})
-
-
+			this.setState({ newTitle:"", lists:nwList});
 		}
 	}
 
 	deleteList(i)
-	{	console.log(this.state.lists, this.state.lists.length);
+	{	
 		let nwList = this.state.lists;
-		
-		//delete nwList[nwList.indexOf(i)];    //cela incrementera la taille du tableau, mais si on utilise splice, le fait d'utiliser des state dans TodoList.js fera que la liste ne changera pas..
-		const mynewList = nwList.filter(list => list!=i)  // cette ligne enleve bien du tableau mais les elements restes dans  la liste 
-		console.log(nwList, nwList.length, mynewList);
+		const mynewList = nwList.filter(list => list!=i)  
 		this.setState({lists: mynewList});
 	}
 
 	deleteTodo = (todo, todolisttitle) =>
 	{
 
-
-		/*
-		console.log("in listof");
-		let nwList = this.state.lists;
-		let listIndex = nwList.indexOf(todolisttitle);
-		let listWhereDelete = nwList.filter(list => list.title==todolisttitle);
-		listWhereDelete.splice(indexOf(todo),1);
-		
-		nwLists[listIndex] = listWhereDelete;
-
-		this.setState({lists: nwList});
-		*/
-		
+		let nwlists = this.state.lists;
+		let nwlist = this.state.lists.filter(list => list.title===todolisttitle);
+		let listwithtodo = [...nwlist[0].list];
+		let listremove = listwithtodo.filter(list => list.ToDo !== todo);
+		nwlists[this.state.lists.indexOf(nwlist[0])].list=listremove;
+		this.setState({lists:nwlists});
 	}
 
 	addTodo = (todo, todolisttitle) =>
@@ -74,21 +55,37 @@ export default class ListOfTDL extends React.Component {
 	
 			let newtodo = {ToDo:todo, checked:false};
 			let nwlists = this.state.lists;
-			let nwlist = this.state.lists.filter(list => list.title==todolisttitle);
-			
+			let nwlist = this.state.lists.filter(list => list.title===todolisttitle);
 			let listwithtodo = [newtodo,...nwlist[0].list];
-
 			nwlists[this.state.lists.indexOf(nwlist[0])].list=listwithtodo;
-
-			
 			this.setState({lists:nwlists});
 
 		
 	}
 
-	toggleCB()
+	toggleCB = (todo, todolisttitle) =>
 	{
-		console.log("toggleCB")
+		let nwlists = this.state.lists;
+		let nwlist = this.state.lists.filter(list => list.title===todolisttitle);	
+		let listwithtodo = [...nwlist[0].list];
+		let todototoggle = listwithtodo.filter(td => td ===todo);
+		todototoggle[0].checked = !todototoggle[0].checked;
+		nwlists[this.state.lists.indexOf(nwlist[0])].list=listwithtodo;
+		this.setState({lists:nwlists});
+		
+	}
+	pressEnter(e)
+	{
+		if(e.key=='Enter')
+		{
+			if(this.state.newTitle!=="")
+			{
+				let nwTitle = this.state.newTitle;
+				let Add = {title:nwTitle,list:[]};
+				let nwList = [...this.state.lists,Add];
+				this.setState({ newTitle:"", lists:nwList});
+			}
+		}
 	}
 
 	render() {
@@ -104,7 +101,7 @@ export default class ListOfTDL extends React.Component {
 			
 				<div className="new">
 				<button className="addButton" onClick={() => this.AddList()}><img src={require("../icons/add.png")} alt="AddList"/></button>
-				<input className="newTitle" type="text" placeholder="New list title..." value={this.state.newTitle} onChange={this.editNewTitle.bind(this)}/>
+				<input className="newTitle" type="text" placeholder="New list title..." value={this.state.newTitle} onChange={this.editNewTitle.bind(this)}  onKeyUp={this.pressEnter.bind(this)}/>
 			</div>
 			
 			</div>

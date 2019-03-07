@@ -6,7 +6,8 @@ export default class notes extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			notes:this.props.notes,
+			notes:[
+						{title:'ho1', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},],
 			newTitle:"",
 			newNote:"",
 			
@@ -50,6 +51,26 @@ export default class notes extends React.Component {
 		this.setState({notes:newNotes})
 	}
 
+	noteEnter(e)
+	{
+		if(e.key=='Enter')
+		{
+			if((this.state.newTitle!="")&&(this.state.newNotes!=""))
+			{
+				let date = new Date();
+				let ladate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+				let nwNotes = this.state.notes
+				let nwNote = {
+					title:this.state.newTitle,
+					note:this.state.newNote,
+					date:ladate,
+				}
+				nwNotes.unshift(nwNote);
+				this.setState({notes:nwNotes, newTitle:"",newNote:""})
+			}
+		}
+	}
+
 	
 
 	render() {
@@ -57,14 +78,14 @@ export default class notes extends React.Component {
 			<div className="mesNotes">
 
 				<div className="newNote">
-					<input className="title" type="text" placeholder="Title..." value={this.state.newTitle} onChange={this.editNewTitle.bind(this)}/>
-					<textarea className="laNote" type="textarea" placeholder="note..." value={this.state.newNote} onChange={this.editNewNote.bind(this)}/>
+					<input className="title" type="text" placeholder="Title..." value={this.state.newTitle} onChange={this.editNewTitle.bind(this)} />
+					<textarea className="laNote" type="textarea" placeholder="note..." value={this.state.newNote} onChange={this.editNewNote.bind(this)} onKeyUp={this.noteEnter.bind(this)}/>
 					<button onClick={() => this.addNote()}>Post !</button> 
 				</div>		
 
 				<div className="notes">
-					{this.state.notes.map((lanote) =>
-						 <Note title={lanote.title} note={lanote.note} date={lanote.date} onClick={() => this.deleteNote(lanote)}/>
+					{this.state.notes.map((lanote, id) =>
+						 <Note  key={id} title={lanote.title} note={lanote.note} date={lanote.date} onClick={() => this.deleteNote(lanote)}/>
 					)}
 				</div>
 			

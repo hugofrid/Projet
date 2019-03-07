@@ -151,7 +151,7 @@ const Todos = [
     .add('list of TodoList', () => <ListOfTDL />)
 
 storiesOf('weather',module)
-  .add('weather',() => <Weather city="Paris"/>)
+  .add('weather',() => <Weather />)
 
 storiesOf('clock',module)
   .add('time',() => <Timer/>)
